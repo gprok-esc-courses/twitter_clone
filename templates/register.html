@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Register Page</h1>
+
+    <p>{{ message }}</p>
+
+    <form method="post" action="/register">
+        <label>Username: </label>
+        <input type="text" name="username" />
+        <br>
+        <label>Password: </label>
+        <input type="password" name="password" />
+        <br>
+        <label>Repeat Password: </label>
+        <input type="password" name="password2" />
+        <br>
+        <label>Birthdate (YYYY-MM-DD): </label>
+        <input type="text" name="birthdate" />
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

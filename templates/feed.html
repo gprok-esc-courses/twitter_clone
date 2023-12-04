@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Feed</h2>
+    {% if g.user %}
+    <h3>User: {{ g.user[1] }}</h3>
+    <a href="/logout">Logout</a>
+    <div>
+        <form method="post" action="/tweet">
+            <input type="text" name="tweet" placeholder="Tweet something" /><button type="submit">Send</button>
+        </form>
+    </div>
+    {% else %}
+    <a href="/login">Login</a>
+    {% endif %}
+    {% for tweet in tweets %}
+        <div>
+            <b>{{ tweet[5] }}</b><br>
+            {{ tweet[2] }}<br>
+            {% if tweet[3] > 0 %}&#129505;{% else %}&#128153;{% endif %} {{ tweet[3] }}
+        </div>
+    {% endfor %}
+{% endblock %}
